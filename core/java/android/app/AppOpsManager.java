@@ -1343,9 +1343,16 @@ public class AppOpsManager {
     public static final int OP_RECEIVE_AMBIENT_TRIGGER_AUDIO =
             AppProtoEnums.APP_OP_RECEIVE_AMBIENT_TRIGGER_AUDIO;
 
+    /**
+     * Access to other Sensors
+     *
+     * @hide
+     */
+    public static final int OP_OTHER_SENSORS = 121;
+
     /** @hide */
     @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.R, trackingBug = 170729553)
-    public static final int _NUM_OP = 121;
+    public static final int _NUM_OP = 122;
 
     /** Access to coarse location information. */
     public static final String OPSTR_COARSE_LOCATION = "android:coarse_location";
@@ -1816,6 +1823,9 @@ public class AppOpsManager {
     public static final String OPSTR_RECEIVE_AMBIENT_TRIGGER_AUDIO =
             "android:receive_ambient_trigger_audio";
 
+    /** @hide Other Sensors */
+    public static final String OPSTR_OTHER_SENSORS = "android:other_sensors";
+
     /** {@link #sAppOpsToNote} not initialized yet for this op */
     private static final byte SHOULD_COLLECT_NOTE_OP_NOT_INITIALIZED = 0;
     /** Should not collect noting of this app-op in {@link #sAppOpsToNote} */
@@ -1906,6 +1916,7 @@ public class AppOpsManager {
             OP_USE_ICC_AUTH_WITH_DEVICE_IDENTIFIER,
             OP_SCHEDULE_EXACT_ALARM,
             OP_MANAGE_MEDIA,
+            OP_OTHER_SENSORS,
     };
 
     /**
@@ -2038,6 +2049,7 @@ public class AppOpsManager {
             OP_ESTABLISH_VPN_MANAGER,           // OP_ESTABLISH_VPN_MANAGER
             OP_ACCESS_RESTRICTED_SETTINGS,      // OP_ACCESS_RESTRICTED_SETTINGS
             OP_RECEIVE_AMBIENT_TRIGGER_AUDIO,      // RECEIVE_SOUNDTRIGGER_AUDIO
+            OP_OTHER_SENSORS,                   // OP_OTHER_SENSORS
     };
 
     /**
@@ -2165,6 +2177,7 @@ public class AppOpsManager {
             OPSTR_ESTABLISH_VPN_MANAGER,
             OPSTR_ACCESS_RESTRICTED_SETTINGS,
             OPSTR_RECEIVE_AMBIENT_TRIGGER_AUDIO,
+            OPSTR_OTHER_SENSORS,
     };
 
     /**
@@ -2293,6 +2306,7 @@ public class AppOpsManager {
             "ESTABLISH_VPN_MANAGER",
             "ACCESS_RESTRICTED_SETTINGS",
             "RECEIVE_SOUNDTRIGGER_AUDIO",
+            "OTHER_SENSORS",
     };
 
     /**
@@ -2422,6 +2436,7 @@ public class AppOpsManager {
             null, // no permission for OP_ESTABLISH_VPN_MANAGER
             null, // no permission for OP_ACCESS_RESTRICTED_SETTINGS,
             null, // no permission for OP_RECEIVE_SOUNDTRIGGER_AUDIO
+            null, // no permission for OP_OTHER_SENSORS,
     };
 
     /**
@@ -2551,6 +2566,7 @@ public class AppOpsManager {
             null, // ESTABLISH_VPN_MANAGER
             null, // ACCESS_RESTRICTED_SETTINGS
             null, // RECEIVE_SOUNDTRIGGER_AUDIO
+            null, // OTHER_SENSORS
     };
 
     /**
@@ -2679,6 +2695,7 @@ public class AppOpsManager {
             null, // ESTABLISH_VPN_MANAGER
             null, // ACCESS_RESTRICTED_SETTINGS
             null, // RECEIVE_SOUNDTRIGGER_AUDIO
+            null, // OTHER_SENSORS
     };
 
     /**
@@ -2806,6 +2823,7 @@ public class AppOpsManager {
             AppOpsManager.MODE_ALLOWED, // ESTABLISH_VPN_MANAGER
             AppOpsManager.MODE_ALLOWED, // ACCESS_RESTRICTED_SETTINGS,
             AppOpsManager.MODE_ALLOWED, // RECEIVE_SOUNDTRIGGER_AUDIO
+            AppOpsManager.MODE_ALLOWED, // OTHER_SENSORS
     };
 
     /**
@@ -2937,6 +2955,7 @@ public class AppOpsManager {
             false, // OP_ESTABLISH_VPN_MANAGER
             true, // ACCESS_RESTRICTED_SETTINGS
             false, // RECEIVE_SOUNDTRIGGER_AUDIO
+            false, // OTHER_SENSORS
     };
 
     /**
@@ -3065,6 +3084,7 @@ public class AppOpsManager {
             false, // OP_ESTABLISH_VPN_MANAGER
             true, // ACCESS_RESTRICTED_SETTINGS
             false, // RECEIVE_SOUNDTRIGGER_AUDIO
+            false, // OTHER_SENSORS
     };
 
     /**
