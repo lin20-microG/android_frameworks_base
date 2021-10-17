@@ -6,6 +6,10 @@ import java.util.Set;
 /** @hide */
 public class ExtSettings {
 
+
+    public static final IntSetting AUTO_REBOOT_TIMEOUT = new IntSetting(
+            Setting.Scope.GLOBAL, "settings_reboot_after_timeout", 0);
+
     private ExtSettings() {}
 
     // used for making settings defined in this class unreadable by third-party apps
