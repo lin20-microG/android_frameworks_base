@@ -16,6 +16,10 @@ public class ExtSettings {
     public static final BoolSysProperty EXEC_SPAWNING = new BoolSysProperty(
             "persist.security.exec_spawn_new", true);
 
+    // The amount of time in milliseconds before a disconnected Wi-Fi adapter is turned off
+    public static final IntSetting WIFI_AUTO_OFF = new IntSetting(
+            Setting.Scope.GLOBAL, "wifi_off_timeout", 0 /* off by default */);
+
     private ExtSettings() {}
 
     // used for making settings defined in this class unreadable by third-party apps
