@@ -1007,6 +1007,18 @@
             </intent-filter>
         </receiver>
 
+        <activity
+            android:name=".ErrorReportActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.DeviceDefault.DayNight"
+            android:documentLaunchMode="always"
+            android:process=":ui"
+        >
+            <intent-filter>
+                <action android:name="android.intent.action.APP_ERROR" />
+            </intent-filter>
+        </activity>
+
         <provider
             android:authorities="com.android.systemui.customization"
             android:name="com.android.systemui.keyguard.CustomizationProvider"
