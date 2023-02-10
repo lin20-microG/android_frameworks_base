@@ -17375,6 +17375,15 @@ public final class Settings {
                 "review_permissions_notification_state";
 
         /**
+         * Force disable Secure User Plane Location (SUPL), 0 or 1.
+         * @hide
+         */
+        public static final String FORCE_DISABLE_SUPL = "force_disable_supl";
+
+        /** @hide */
+        public static final int FORCE_DISABLE_SUPL_DEFAULT = 0;
+
+        /**
          * Settings migrated from Wear OS settings provider.
          * @hide
          */
