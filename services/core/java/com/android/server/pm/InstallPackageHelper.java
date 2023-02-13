@@ -2035,15 +2035,6 @@ final class InstallPackageHelper {
                     if (DEBUG_INSTALL) {
                         Slog.d(TAG, "Implicitly enabling system package on upgrade: " + pkgName);
                     }
-                    // Enable system package for requested users
-                    if (res.mOrigUsers != null) {
-                        for (int origUserId : res.mOrigUsers) {
-                            if (userId == UserHandle.USER_ALL || userId == origUserId) {
-                                ps.setEnabled(COMPONENT_ENABLED_STATE_DEFAULT,
-                                        origUserId, installerPackageName);
-                            }
-                        }
-                    }
                     // Also convey the prior install/uninstall state
                     if (allUsers != null && installedForUsers != null) {
                         for (int currentUserId : allUsers) {
@@ -2088,7 +2079,6 @@ final class InstallPackageHelper {
                     // It's implied that when a user requests installation, they want the app to
                     // be installed and enabled.
                     ps.setInstalled(true, userId);
-                    ps.setEnabled(COMPONENT_ENABLED_STATE_DEFAULT, userId, installerPackageName);
                 } else if (allUsers != null) {
                     // The caller explicitly specified INSTALL_ALL_USERS flag.
                     // Thus, updating the settings to install the app for all users.
@@ -2107,8 +2097,6 @@ final class InstallPackageHelper {
                                         UserManager.DISALLOW_DEBUGGING_FEATURES);
                         if (installedForCurrentUser || !restrictedByPolicy) {
                             ps.setInstalled(true, currentUserId);
-                            ps.setEnabled(COMPONENT_ENABLED_STATE_DEFAULT, currentUserId,
-                                    installerPackageName);
                         } else {
                             ps.setInstalled(false, currentUserId);
                         }
