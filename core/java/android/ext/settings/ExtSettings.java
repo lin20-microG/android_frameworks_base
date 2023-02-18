@@ -24,6 +24,9 @@ public class ExtSettings {
     public static final IntSetting BLUETOOTH_AUTO_OFF = new IntSetting(
             Setting.Scope.GLOBAL, "bluetooth_off_timeout", 0 /* off by default */);
 
+    public static final BoolSetting SCREENSHOT_TIMESTAMP_EXIF = new BoolSetting(
+            Setting.Scope.PER_USER, "screenshot_timestamp_exif", false);
+
     private ExtSettings() {}
 
     // used for making settings defined in this class unreadable by third-party apps
