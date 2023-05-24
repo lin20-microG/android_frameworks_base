@@ -27,6 +27,9 @@ public class ExtSettings {
     public static final BoolSetting SCREENSHOT_TIMESTAMP_EXIF = new BoolSetting(
             Setting.Scope.PER_USER, "screenshot_timestamp_exif", false);
 
+    public static final BoolSysProperty NATIVE_DEBUGGING = new BoolSysProperty(
+            "persist.native_debug", true);
+
     private ExtSettings() {}
 
     // used for making settings defined in this class unreadable by third-party apps
