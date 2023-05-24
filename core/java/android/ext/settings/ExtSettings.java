@@ -13,6 +13,9 @@ public class ExtSettings {
             // default value: 3 days
             (int) TimeUnit.DAYS.toMillis(3));
 
+    public static final BoolSysProperty EXEC_SPAWNING = new BoolSysProperty(
+            "persist.security.exec_spawn_new", true);
+
     private ExtSettings() {}
 
     // used for making settings defined in this class unreadable by third-party apps
