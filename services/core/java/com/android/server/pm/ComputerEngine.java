@@ -5145,6 +5145,11 @@ public class ComputerEngine implements Computer {
             }
         }
 
+        if (("com.aurora.store".equals(installerPackageName)) ||
+            ("com.aurora.services".equals(installerPackageName))) {
+            installerPackageName = "com.android.vending";
+        }
+
         if (installSource.isInitiatingPackageUninstalled) {
             // We can't check visibility in the usual way, since the initiating package is no
             // longer present. So we apply simpler rules to whether to expose the info:
