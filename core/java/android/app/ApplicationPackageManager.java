@@ -2534,7 +2534,11 @@ public class ApplicationPackageManager extends PackageManager {
     @Override
     public String getInstallerPackageName(String packageName) {
         try {
-            return mPM.getInstallerPackageName(packageName);
+            String installer = mPM.getInstallerPackageName(packageName);
+            if (("com.aurora.store".equals(installer)) || ("com.aurora.services".equals(installer))) {
+                return "com.android.vending";
+            }
+            return installer;
         } catch (RemoteException e) {
             throw e.rethrowFromSystemServer();
         }
