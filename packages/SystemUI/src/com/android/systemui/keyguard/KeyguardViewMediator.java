@@ -728,13 +728,6 @@ public class KeyguardViewMediator implements CoreStartable, Dumpable,
                 }
             }
         }
-
-        @Override
-        public void onStrongAuthStateChanged(int userId) {
-            if (mLockPatternUtils.isUserInLockdown(KeyguardUpdateMonitor.getCurrentUser())) {
-                doKeyguardLocked(null);
-            }
-        }
     };
 
     ViewMediatorCallback mViewMediatorCallback = new ViewMediatorCallback() {
