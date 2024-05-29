@@ -258,6 +258,8 @@ public class UserManagerService extends IUserManager.Stub {
 
     private static final int USER_VERSION = 9;
 
+    private static final int MAX_USER_STRING_LENGTH = 500;
+
     private static final long EPOCH_PLUS_30_YEARS = 30L * 365 * 24 * 60 * 60 * 1000L; // ms
 
     static final int WRITE_USER_MSG = 1;
