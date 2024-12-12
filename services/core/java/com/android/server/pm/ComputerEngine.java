@@ -160,6 +160,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
+import java.security.cert.CertificateException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -1614,9 +1615,21 @@ public class ComputerEngine implements Computer {
             if (p.getMetaData() != null &&
                     p.getTargetSdkVersion() > Build.VERSION_CODES.LOLLIPOP_MR1) {
                 String sig = p.getMetaData().getString("fake-signature");
-                if (sig != null &&
-                        permissions.contains("android.permission.FAKE_PACKAGE_SIGNATURE")) {
-                    pi.signatures = new Signature[] {new Signature(sig)};
+                try {
+                    if (sig != null &&
+                            permissions.contains("android.permission.FAKE_PACKAGE_SIGNATURE")) {
+                        pi.signatures = new Signature[] {new Signature(sig)};
+                        pi.signingInfo = new SigningInfo(
+                            new SigningDetails(
+                                    pi.signatures,
+                                    SigningDetails.SignatureSchemeVersion.SIGNING_BLOCK_V3,
+                                    SigningDetails.toSigningKeys(pi.signatures),
+                                    null
+                            )
+                        );
+                    }
+                } catch (CertificateException e) {
+                        Slog.e(TAG, "Caught an exception when creating signing keys: ", e);
                 }
             }
         } catch (Throwable t) {
